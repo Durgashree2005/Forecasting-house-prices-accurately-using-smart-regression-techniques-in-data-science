@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>House Price Prediction</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #eef2f7;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .container {
+      background-color: #fff;
+      padding: 2rem 2.5rem;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+      width: 400px;
+    }
+    h1 {
+      text-align: center;
+      color: #1e3a8a;
+      margin-bottom: 20px;
+    }
+    form input, form select, form button {
+      width: 100%;
+      padding: 10px;
+      margin: 12px 0;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
+    button {
+      background-color: #2563eb;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #1e40af;
+    }
+    .result {
+      margin-top: 20px;
+      font-size: 1.2rem;
+      color: #047857;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>House Price Predictor</h1>
+    <form method="POST" action="/predict">
+      <input type="number" name="size" placeholder="Size (in sq ft)" required />
+      <input type="number" name="bedrooms" placeholder="Number of Bedrooms" required />
+      <input type="text" name="location" placeholder="Location" required />
+      <button type="submit">Predict</button>
+    </form>
+    {% if price %}
+      <div class="result">
+        Predicted Price: ₹{{ price }}
+      </div>
+    {% endif %}
+  </div>
+</body>
+</html>
